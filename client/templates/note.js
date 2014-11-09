@@ -32,3 +32,9 @@ Template.note.events({
     $('#myModal').modal('show');
 }
 });
+
+Template.note.rendered = function () {
+  $('pre').addClass('prettyprint').attr('style', 'overflow:auto');
+  prettyPrint();
+};
+
