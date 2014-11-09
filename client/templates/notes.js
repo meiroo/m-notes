@@ -10,21 +10,31 @@
   Template.body.helpers({
     notes:function(){
     	var notes = null;
-    	if(Session.get("only_me")){
+      var query = {};
+      var filter = Session.get("filter");
+      if(filter){
+        query.filter = filter;
+      }
+    	if(Session.get("status") == "1"){
     	   var usr =  Meteor.user();
-	   if(!usr){
-	     alert("请登录 !!!");
+	   if(!usr || !usr.emails || !usr.emails[0].address){
+	     //alert("请登录 !!!");
 	     return false;
 	    }
    	    var author = usr.emails[0].address;
-    	     notes =  Notes.find({author:author}, { sort : { createdAt : -1 } });
-    	}else{
-    	     notes =  Notes.find({}, { sort : { createdAt : -1 } });
-    	}
+          query.author = author;
+          notes =  Notes.find(query, { sort : { createdAt : -1 } });
+    	}else if(Session.get("status") == "0"){
+          notes =  Notes.find(query, { sort : { createdAt : -1 } });
+      }
 
        return notes;
     }
   });
+
+  Template.body.rendered = function () {
+  Session.set("status", "0");
+};
 
 
 //}

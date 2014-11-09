@@ -1,25 +1,32 @@
 <template name="nav">
 <div class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
-        <a class="allnotes navbar-brand" href="#">全部 Notes</a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+        
     </div>
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li class="onlyme active"><a href="#">只看自己</a></li>
+        <li class="onlyme active">
+            <a class="allnotes  navbar-brand {{#if equals status "0"}} btn btn-primary btn-sm {{/if}}" href="#">全部 Notes</a>
+        </li>
+             <li class="onlyme active"> <a class="navbar-brand  {{#if equals status "1"}} btn btn-primary btn-sm {{/if}}"  href="#" role="button" >只看自己</a></li>
+            <li ><a class="navbar-brand " href="#">分类:</a></li>
+            <li class="active">
+            <form class="filter">
+                <input type="text" name="text"  class="form-control" style="height:50px;" placeholder="Enter 分类">
+               </form>
+            </li>
+             
         </ul>
+
         
         <ul class="nav navbar-nav navbar-right">
             {{> loginButtons }} <!-- here -->
         </ul>
 
+        
+
         <ul class="nav navbar-nav navbar-right">
-              <li class="active"> <a class="add btn btn-primary btn-sm" href="#" role="button" >Add New</a></li>
+              <li class="active"> <a class="add navbar-brand  {{#if equals "abc" "abc"}} btn btn-primary btn-sm {{/if}}"  href="#" role="button" >Add New</a></li>
         </ul>
     </div>
 </div>
