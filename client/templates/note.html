@@ -1,0 +1,15 @@
+<template name="note">
+
+<div class="jumbotron">
+
+  <h2>{{title}}</h2>
+  <h4>{{author}}    写作于  {{createdAt}} </h4>
+  <pre class="linenums Lang-html"> {{content}} </pre>
+
+  <p>
+  <a class="delete btn btn-primary btn-sm" href="#" role="button">Delete</a>
+  <a class="edit btn btn-primary btn-sm" href="#" role="button" data-toggle="modal" >Edit</a>
+  </p>
+
+</div>
+</template>
