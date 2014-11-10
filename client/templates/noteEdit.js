@@ -19,6 +19,9 @@ Template.noteEdit.events({
     var author = usr.emails[0].address;
     var content =  event.target.content.value;
     var filter = event.target.filter.value;
+    var image1 = event.target.image1.value;
+    var image2 = event.target.image2.value;
+    var image3 = event.target.image3.value;
     if(!filter)
       filter = "默认";
 
@@ -27,10 +30,12 @@ Template.noteEdit.events({
       Notes.update( _id, { $set :{
         title: title,
         content:content,
-        filter:filter
+        filter:filter,
+        images:[image1,image2,image3]
       } } );
     }else{
-      Notes.insert({  title:title, content: content, author:author, filter:filter,createdAt: new Date()   });
+      Notes.insert({  title:title, content: content, author:author, 
+        filter:filter,images:[image1,image2,image3],createdAt: new Date()   });
     }
     
     $('#myModal').modal('hide');

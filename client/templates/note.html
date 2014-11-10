@@ -32,20 +32,24 @@
     <div id="collapse{{_id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{_id}}">
       <pre> {{content}} </pre>
         <p>
-        <a class="delete btn btn-primary btn-sm" href="#" role="button">Delete</a>
-        <a class="edit btn btn-primary btn-sm" href="#" role="button" data-toggle="modal" >Edit</a>
+        <a class="edit btn btn-primary btn-sm" href="#" role="button" data-toggle="modal" >  Edit This Note </a>
+        <a class="delete btn btn-primary btn-sm" href="#" role="button"> Delete Note </a>
+        
         </p>
     </div>
   </div>
 
-  <div class="media">
-  <a class="media-left" href="#">
-    <img src="..." alt="...">
-  </a>
-  <div class="media-body">
-    <h4 class="media-heading">Media heading</h4>
+  <div class="row">
+  {{#each images}}
+  {{#if this}}
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+      <img data-src="holder.js/100%x180" src="{{this}}" alt="...">
+    </a>
   </div>
- </div>
+  {{/if}}
+  {{/each}}
+</div>
     
 </div>
 
