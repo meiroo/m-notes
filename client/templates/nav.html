@@ -1,9 +1,15 @@
 <template name="nav">
-<div class="navbar navbar-default" role="navigation">
+
+<div class="container">
     <div class="navbar-header">
-        
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span style="background-color:#563d7c;" class="icon-bar"></span>
+        <span style="background-color:#563d7c;" class="icon-bar"></span>
+        <span style="background-color:#563d7c;" class="icon-bar"></span>
+      </button>
     </div>
-    <div class="navbar-collapse collapse">
+    <nav class="navbar-collapse collapse bs-navbar-collapse" role="navigation">
         <ul class="nav navbar-nav">
         <li class="onlyme active">
             <a class="allnotes  navbar-brand {{#if equals status "0"}} btn btn-primary btn-sm {{/if}}" href="#">全部 Notes</a>
@@ -28,6 +34,7 @@
         <ul class="nav navbar-nav navbar-right">
               <li class="active"> <a class="add navbar-brand  {{#if equals "abc" "abc"}} btn btn-primary btn-sm {{/if}}"  href="#" role="button" >Add New</a></li>
         </ul>
-    </div>
+    </nav>
 </div>
+
 </template>

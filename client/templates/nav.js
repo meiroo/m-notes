@@ -11,6 +11,13 @@ Template.registerHelper('equals', function(value1, value2){
 
 Template.nav.events({
 "click .add": function (event,template) {
+
+   var usr =  Meteor.user();
+   if(!usr){
+     alert("登录后才可以添加Note !!!");
+     return false;
+   }
+
     event.preventDefault();
     Session.set("current_edit", -1);
     $('#myModal').modal('show');
