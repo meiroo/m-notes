@@ -1,4 +1,13 @@
+Template.note.helpers({    
+    contentThumb: function () {
+        return this.content.substring(0,150).concat(" \r\n\r\n... .... ... ");
+  }
+  });
+
 Template.note.events({
+"click .collapseurl": function(event,template){
+    template.$(".contentThumb").toggle();
+},
 
 "click .delete": function (event,template) {
    var usr =  Meteor.user();
@@ -50,7 +59,7 @@ Template.note.events({
 });
 
 Template.note.rendered = function () {
-  $('pre').addClass('prettyprint').attr('style', 'overflow:auto');
+  $('pre').addClass('prettyprint');
   prettyPrint();
 };
 

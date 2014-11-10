@@ -22,15 +22,16 @@
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading{{_id}}">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion{{_id}}" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}">
+        <a data-toggle="collapse" class="collapseurl" data-parent="#accordion{{_id}}" href="#collapse{{_id}}">
           <h2>{{title}}</h2>
           <h3>属于 {{filter}} 分类</h3>
           <h4>{{author}}    写作于  {{createdAt}} </h4>
+          
         </a>
       </h4>
     </div>
-    <div id="collapse{{_id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{_id}}">
-      <pre> {{content}} </pre>
+    <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}" >
+      <pre class="content" style="overflow:auto;"> {{content}} </pre>
         <p>
         <a class="edit btn btn-primary btn-sm" href="#" role="button" data-toggle="modal" >  Edit This Note </a>
         <a class="delete btn btn-primary btn-sm" href="#" role="button"> Delete Note </a>
@@ -38,6 +39,7 @@
         </p>
     </div>
   </div>
+  <pre class="contentThumb" style="overflow:auto; "> {{contentThumb}} </pre>
 
   <div class="row">
   {{#each images}}
