@@ -18,15 +18,36 @@
 
 <div class="jumbotron">
 
-  <h2>{{title}}</h2>
-  <h3>属于 {{filter}} 分类</h3>
-  <h4>{{author}}    写作于  {{createdAt}} </h4>
-  <pre> {{content}} </pre>
+  <div class="panel-group" id="accordion{{_id}}" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading{{_id}}">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion{{_id}}" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}">
+          <h2>{{title}}</h2>
+          <h3>属于 {{filter}} 分类</h3>
+          <h4>{{author}}    写作于  {{createdAt}} </h4>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse{{_id}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading{{_id}}">
+      <pre> {{content}} </pre>
+        <p>
+        <a class="delete btn btn-primary btn-sm" href="#" role="button">Delete</a>
+        <a class="edit btn btn-primary btn-sm" href="#" role="button" data-toggle="modal" >Edit</a>
+        </p>
+    </div>
+  </div>
 
-  <p>
-  <a class="delete btn btn-primary btn-sm" href="#" role="button">Delete</a>
-  <a class="edit btn btn-primary btn-sm" href="#" role="button" data-toggle="modal" >Edit</a>
-  </p>
-
+  <div class="media">
+  <a class="media-left" href="#">
+    <img src="..." alt="...">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+  </div>
+ </div>
+    
 </div>
+
+ </div> 
 </template>

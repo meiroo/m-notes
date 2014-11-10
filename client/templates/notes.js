@@ -32,7 +32,7 @@
     }
   });
 
-  Template.body.rendered = function () {
+Template.body.rendered = function () {
   Session.set("status", "0");
 };
 

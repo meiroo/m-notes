@@ -47,5 +47,4 @@ Template.nav.events({
     return false;
 }
 
-
 });
