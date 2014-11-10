@@ -39,6 +39,15 @@ Template.note.events({
   Notes.remove( this._id );
 },
 
+"click .thumbnail":function(event,template){
+     
+     var imgsrc = template.$(".thumbnail img").attr("src");
+
+     $('#image').modal('show');
+     $('#image').find('img').attr("src",imgsrc);
+    
+},
+
 "click .edit": function (event,template) {
     event.preventDefault();
 

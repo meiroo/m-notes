@@ -1,4 +1,21 @@
 /* qingdou 2.1*/
+
+body .modal {
+  width: 90%; /* desired relative width */
+  max-width: 1000px;
+  left: 5%; /* (100%-width)/2 */
+  /* place center */
+  margin-left:auto;
+  margin-right:auto; 
+}
+
+.modal-dialog {
+    width:100%;
+}
+.modal-body  {
+    max-height: 600px;
+    overflow-y: scroll;
+}
 .prettyprint,
 pre.prettyprint {
 font-size: 17px;
