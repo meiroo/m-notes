@@ -40,6 +40,8 @@ Template.note.events({
 },
 
 "click .thumbnail":function(event,template){
+
+	event.preventDefault();
      
      var imgsrc = template.$(".thumbnail img").attr("src");
 
