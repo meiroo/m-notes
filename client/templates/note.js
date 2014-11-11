@@ -41,10 +41,8 @@ Template.note.events({
 
 "click .thumbnail":function(event,template){
 
-	event.preventDefault();
-     
-     var imgsrc = template.$(".thumbnail img").attr("src");
-
+     event.preventDefault();
+     var imgsrc = event.target.src;
      $('#image').modal('show');
      $('#image').find('img').attr("src",imgsrc);
     
