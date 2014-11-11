@@ -13,7 +13,8 @@
       var query = {};
       var filter = Session.get("filter");
       if(filter){
-        query.filter = filter;
+        var re = /.*/;
+        query.filter = {   $regex:   ".*"+filter+".*" };
       }
     	if(Session.get("status") == "1"){
     	   var usr =  Meteor.user();
