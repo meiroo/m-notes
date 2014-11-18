@@ -16,6 +16,9 @@
         var re = /.*/;
         query.filter = {   $regex:   ".*"+filter+".*" };
       }
+
+      var page = parseInt(Session.get("page"),10) -1 ;
+
     	if(Session.get("status") == "1"){
     	   var usr =  Meteor.user();
 	   if(!usr || !usr.emails || !usr.emails[0].address){
@@ -26,7 +29,7 @@
           query.author = author;
           notes =  Notes.find(query, { sort : { createdAt : -1 } });
     	}else if(Session.get("status") == "0"){
-          notes =  Notes.find(query, { sort : { createdAt : -1 } });
+          notes =  Notes.find(query, { sort : { createdAt : -1 } , skip: page*5, limit: 5});
       }
 
        return notes;
@@ -35,6 +38,15 @@
 
 Template.body.rendered = function () {
   Session.set("status", "0");
+  Session.set("page","1");
+
+  $('#pagination-demo').twbsPagination({
+        totalPages: 3,
+        visiblePages: 5,
+        onPageClick: function (event, page) {
+          Session.set("page",page);
+        }
+    });
 };
 
 
