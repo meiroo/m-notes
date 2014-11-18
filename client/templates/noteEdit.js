@@ -3,6 +3,14 @@ Template.noteEdit.helpers({
     note:function(){
        var _id = Session.get("current_edit");
        var note = Notes.findOne({_id:_id});
+       note.image1 = "";
+       note.image2 = "";
+       note.image3 = "";
+       if(note.images){
+         note.image1 = note.images[0];
+         note.image2 = note.images[1];
+         note.image3 = note.images[2];
+       }
 
        return note;
     }
