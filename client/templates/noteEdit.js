@@ -1,7 +1,10 @@
 
 Template.noteEdit.helpers({    
     note:function(){
-       var _id = Session.get("current_edit");
+       var _id = global.current_edit;
+       if(!_id || _id === -1)
+        return;
+      alert(_id); 
        var note = Notes.findOne({_id:_id});
        note.image1 = "";
        note.image2 = "";
@@ -11,7 +14,6 @@ Template.noteEdit.helpers({
          note.image2 = note.images[1];
          note.image3 = note.images[2];
        }
-
        return note;
     }
   });
@@ -22,7 +24,7 @@ Template.noteEdit.events({
     event.preventDefault();
 
    var usr =  Meteor.user();
-    var _id = Session.get("current_edit");
+    var _id = global.current_edit;
     var title = event.target.title.value;
     var author = usr.emails[0].address;
     var content =  event.target.content.value;

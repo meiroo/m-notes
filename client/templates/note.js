@@ -1,5 +1,6 @@
 Template.note.helpers({    
     contentThumb: function () {
+      console.log("note helper contentThumb...");
         return this.content.substring(0,150).concat(" \r\n\r\n... .... ... ");
   }
   });
@@ -62,7 +63,7 @@ Template.note.events({
      return false;
    }
    
-    Session.set("current_edit", this._id);
+    global.current_edit = this._id;
     $('#myModal').modal('show');
 }
 });
