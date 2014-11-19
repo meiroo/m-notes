@@ -1,5 +1,6 @@
 Template.nav.helpers({    
     status:function(){
+        console.log("nav helper status...");
         return Session.get("status");
     }
 });

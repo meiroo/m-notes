@@ -69,6 +69,7 @@ Template.note.events({
 });
 
 Template.note.rendered = function () {
+  console.log("note rendered...");
   $('pre').addClass('prettyprint');
   prettyPrint();
 };

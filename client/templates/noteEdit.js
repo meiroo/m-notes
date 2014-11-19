@@ -1,6 +1,7 @@
 
 Template.noteEdit.helpers({    
     note:function(){
+      console.log("noteEdit helper note...");
        var _id = global.current_edit;
        if(!_id || _id === -1)
         return;
