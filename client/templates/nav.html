@@ -12,12 +12,12 @@
     </div>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-            <li class="{{#if equals status "0"}} active {{/if}}">  <a class="allnotes" href="#">全部Notes</a>      </li>
+            <li class="{{#if equals status "0"}} active {{/if}}">  <a class="allnotes" href="#">查看全部</a>      </li>
             <a class="navbar-brand " > | </a>
              <li class=" {{#if equals status "1"}} active {{/if}}"> <a class="onlyme"  href="#" role="button" >只看自己</a></li>
             
              <a class="navbar-brand " > | </a>
-            <a class="navbar-brand " >Tags : </a>
+            <a class="navbar-brand " >标签： </a>
             <form class="navbar-form navbar-left filter">
                 <input type="text" name="text"  class="form-control col-lg-8"  placeholder="input then enter">
         </form>
@@ -37,7 +37,7 @@
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
-        <li class="{{#if equals "abc" "abc"}} active {{/if}}"> <a class="add"  href="#" role="button" ><i class="mdi-content-add-box"></i> Add New</a>  </li>
+        <li class="{{#if equals "abc" "abc"}} active {{/if}}"> <a class="add"  href="#" role="button" ><i class="mdi-content-add-box"></i>增加Note</a>  </li>
         <li > <a><i class="mdi-action-account-box"></i></a> </li>
             {{> loginButtons }}
         </ul>

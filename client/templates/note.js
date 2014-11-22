@@ -64,7 +64,7 @@ Template.note.events({
      return false;
    }
    
-    global.current_edit = this._id;
+     Session.set("current_edit", this._id);
     $('#myModal').modal('show');
 }
 });

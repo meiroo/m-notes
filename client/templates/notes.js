@@ -6,11 +6,7 @@
 //if (Meteor.isClient) {
   // counter starts at 0
  // Session.setDefault("counter", 0);
-  global = {
-    current_page:1,
-    current_edit:-1,
-    notes_length: 0,
-  };
+
 alert = function(str){
   if(!str)
     return;
@@ -26,6 +22,7 @@ Template.body.findHelper = function(){
    //query...  filter
    find.query = {};
     var filter = Session.get("filter");
+    filter = filter.replace(/\s/g,".*");
     alert(filter);
     if(filter){
       var re = /.*/;
@@ -35,6 +32,7 @@ Template.body.findHelper = function(){
     if(Session.get("status") == "1"){
        var usr =  Meteor.user();
         if(!usr || !usr.emails || !usr.emails[0].address){
+          alert("登录后才能查看自己的文章");
          return false;
         }
         var author = usr.emails[0].address;
