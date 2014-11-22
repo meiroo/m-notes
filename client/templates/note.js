@@ -8,6 +8,7 @@ Template.note.helpers({
 Template.note.events({
 "click .collapseurl": function(event,template){
     template.$(".contentThumb").toggle();
+    template.$(".collapseurl").hide();
 },
 
 "click .delete": function (event,template) {
