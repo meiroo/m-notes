@@ -11,12 +11,25 @@
     current_edit:-1,
     notes_length: 0,
   };
-
+alert = function(str){
+  if(!str)
+    return;
+  new PNotify({
+      type: 'notice',
+      title: 'Notice',
+      text: str,
+      styling: 'bootstrap3'
+    });
+}
 Template.body.findHelper = function(){
    var find = {};
    //query...  filter
    find.query = {};
     var filter = Session.get("filter");
+    alert(filter);
+
+    
+
     if(filter){
       var re = /.*/;
       find.query.filter = {   $regex:   ".*"+filter+".*" };
