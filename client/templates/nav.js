@@ -28,12 +28,14 @@ Template.nav.events({
 
 "click .onlyme": function (event,template) {
     Session.set("status", "1");
+    Session.set("current_page",1);
     event.preventDefault();
     return false;
 },
 
 "click .allnotes": function (event,template) {
     Session.set("status", "0");
+    Session.set("current_page",1);
     event.preventDefault();
     return false;
 },
