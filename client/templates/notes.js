@@ -10,23 +10,39 @@
 alert = function(str){
   if(!str)
     return;
-  new PNotify({
+
+  var notice = new PNotify({
       type: 'notice',
-      title: 'Notice',
+      title: 'Notice(点击以消除)',
       text: str,
-      styling: 'bootstrap3'
+      styling: 'bootstrap3',
+      hide: false,
+      buttons:{
+        closer: true,
+        closer_hover: true
+      }
+
     });
+  notice.get().click(function() {
+      notice.remove();
+  });
 }
 Template.body.findHelper = function(){
    var find = {};
    //query...  filter
    find.query = {};
-    var filter = Session.get("filter");
+    var filter = Session.get("filter").toLowerCase();
+    //alert(filter);
     filter = filter.replace(/\s/g,".*");
-    alert(filter);
-    if(filter){
-      var re = /.*/;
+    if(filter==="all"){
+
+    }
+    else if(filter){
       find.query.filter = {   $regex:   ".*"+filter+".*" };
+     // alert("输入以查询符合条件的文章，输入all 可以查询全部类型包含Blog, 代码, 　技巧等。输入　src xxxxx　查询符合xxxxx的代码。 blog xxxxx查询文章。等等。");
+    
+    }else{
+      find.query.filter = {   $regex:   ".*blog.*" };
     }
     //query author
     if(Session.get("status") == "1"){
@@ -74,11 +90,22 @@ Template.body.flushPage = function(pagenum){
 
 Template.body.rendered = function () {
     //Template.body.flush();
+    setTimeout(function(){
+      alert("点击右上角的Sign区域，注册号码并登录可以发表自己的Notes。");
+    },2000);
+    
+    setTimeout(function(){
+      alert("默认只显示标签为blog的Notes，不显示src tips等等类型。可以在标签部分查询全部类型Notes。输入all 可以查询全部类型包含blog, src, tips等。输入　src xxxxx　查询符合xxxxx的代码。 blog xxxxx查询文章。等等。");
+    },10000);
+
+    setTimeout(function(){
+      alert("点击只看自己可以只查看自己的文章，此时标签搜索也只在自己文章中搜索。在文章区域，点击learn more可以展开文章并编辑。");
+    },18000);
+    
 };
 
 Template.body.created = function () {
-  console.log("body created...");
-  console.log("collection size = " + Notes.find({}).count()); 
+  Session.set("filter","");
 };
 
 
