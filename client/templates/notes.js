@@ -27,9 +27,6 @@ Template.body.findHelper = function(){
    find.query = {};
     var filter = Session.get("filter");
     alert(filter);
-
-    
-
     if(filter){
       var re = /.*/;
       find.query.filter = {   $regex:   ".*"+filter+".*" };
