@@ -23,12 +23,10 @@
         var re = /.*/;
         query.filter = {   $regex:   ".*"+filter+".*" };
       }
-      var page = global.current_page -1 ;
+      var page = Session.get("current_page") -1 ;
       if(Session.get("status") == "1"){
-        alert(1);
     	   var usr =  Meteor.user();
     	    if(!usr || !usr.emails || !usr.emails[0].address){
-    	     //alert("请登录 !!!");
     	     return false;
     	    }
    	      var author = usr.emails[0].address;
@@ -37,30 +35,33 @@
     	}else{
           notes =  Notes.find(query, { sort : { createdAt : -1 } , skip: page*5, limit: 5});
       }
-      global.notes_length = Notes.find({}).count();
-      
-      
+      Template.body.flush(Notes.find(query).count());
       
       return notes;
     }
   });
 
+Template.body.flush = function(pagenum){
+  console.log("body flush...");
+  console.log("pagenum size = " + pagenum);
+  $("#pagination").pagination({
+    total_pages: (pagenum-1)/5 + 1, 
+    current_page: Session.get("current_page"),
+    callback: function(event, page) {
+        global.current_page = page;
+        Session.set("current_page",page);
+      }
+  });
+}
+
+
 Template.body.rendered = function () {
-  console.log("body rendered...");
-  console.log("collection size = " + Notes.find({}).count());
-  $('#pagination-demo').twbsPagination({
-        totalPages: global.notes_length/5 + 1,
-        visiblePages: 5,
-        onPageClick: function (event, page) {
-          global.current_page = parseInt(page);
-        }
-      });
+    //Template.body.flush();
 };
 
 Template.body.created = function () {
   console.log("body created...");
-  console.log("collection size = " + Notes.find({}).count());
-  
+  console.log("collection size = " + Notes.find({}).count()); 
 };
 
 
