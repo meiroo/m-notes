@@ -37,10 +37,28 @@
   </div>
 </div>
 
-<div class="jumbotron">
+
+
+
+
+ <div class="jumbotron">
 <h2 class="text-center">{{title}}</h2>
 <h4>{{author}}    写作于  {{createdAt}} </h4>
 <h4> TAGS:  {{filter}}</h4>
+
+<div class="" role="tab" id="heading{{_id}}">
+      <h4 class="">
+        <a data-toggle="collapse" class="collapseurl" data-parent="#accordion{{_id}}" href="#collapse{{_id}}">          
+          <p><a class="btn btn-primary btn-xs">
+          {{#if expand}}
+          <i class="mdi-navigation-expand-more"></i>
+          {{else}}
+          <i class="mdi-navigation-expand-less"></i>
+          {{/if}}
+            Learn more</a></p>
+        </a>
+      </h4>
+    </div>
 <pre class="contentThumb" style="overflow:auto; "> {{contentThumb}} </pre>
   <div class="panel-group" id="accordion{{_id}}" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -57,13 +75,8 @@
 
   </div>
 
-  <div class="" role="tab" id="heading{{_id}}">
-      <h4 class="">
-        <a data-toggle="collapse" class="collapseurl" data-parent="#accordion{{_id}}" href="#collapse{{_id}}">          
-          <p><a class="btn btn-primary btn-xs"><i class="mdi-navigation-expand-more"></i>  Learn more</a></p>
-        </a>
-      </h4>
-    </div>
+
+  
   
 
   <div class="row">
@@ -79,6 +92,6 @@
 </div>
     
 </div>
-
  </div> 
+
 </template>

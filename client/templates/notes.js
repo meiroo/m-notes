@@ -110,6 +110,7 @@ Template.body.rendered = function () {
 
 Template.body.created = function () {
   Session.set("filter","");
+  Session.set("simple",false);
 };
 
 

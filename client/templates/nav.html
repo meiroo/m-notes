@@ -27,14 +27,15 @@
                 </ul>
             </li>
             <form class="navbar-form navbar-left filter">
-                <input type="text" name="text"  class="form-control col-lg-8"  placeholder="input then enter">
+                <input type="text" name="text"  class="form-control col-lg-8"  placeholder="输入后按回车">
         </form>
         
 
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
-        <li class="{{#if equals "abc" "abc"}} active {{/if}}"> <a class="add"  href="#" role="button" ><i class="mdi-content-add-box"></i>增加Note</a>  </li>
+        <li class=""> <a class="simple"  href="#" role="button" ><i class="mdi-navigation-menu"></i>极简模式</a>  </li>
+        <li class="active"> <a class="add"  href="#" role="button" ><i class="mdi-content-add-box"></i>增加Note</a>  </li>
         <li > <a><i class="mdi-action-account-box"></i></a> </li>
             {{> loginButtons }}
         </ul>

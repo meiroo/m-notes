@@ -1,14 +1,23 @@
 Template.note.helpers({    
     contentThumb: function () {
       console.log("note helper contentThumb...");
-        return this.content.substring(0,150).concat(" \r\n\r\n... .... ... ");
-  }
+      return this.content.substring(0,150).concat(" \r\n\r\n... .... ... ");
+  },
+
+  simple:function(){
+    return Session.get("simple");
+  },
+
+  expand:true,
+
   });
 
 Template.note.events({
 "click .collapseurl": function(event,template){
     template.$(".contentThumb").toggle();
-    template.$(".collapseurl").hide();
+    template.data.expand = $(".contentThumb").is(":hidden");
+    //Template.note.codePretty();
+    //template.$(".collapseurl").hide();
 },
 
 "click .delete": function (event,template) {
@@ -69,9 +78,13 @@ Template.note.events({
 }
 });
 
-Template.note.rendered = function () {
-  console.log("note rendered...");
+Template.note.codePretty = function(){
   $('pre').addClass('prettyprint');
   prettyPrint();
+}
+
+Template.note.rendered = function () {
+  console.log("note rendered...");
+  Template.note.codePretty();
 };
 

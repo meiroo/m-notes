@@ -60,6 +60,11 @@ Template.nav.events({
     Session.set("filter", 'link');
 },
 
+"click .simple" : function(event,template){
+    var bool = Session.get('simple');
+    Session.set("simple", !bool);
+},
+
 "submit .filter": function (event,template) {
     Session.set("current_page",1);
     event.preventDefault();
