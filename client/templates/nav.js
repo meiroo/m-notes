@@ -40,6 +40,26 @@ Template.nav.events({
     return false;
 },
 
+"click .tags .all" : function(event,template){
+    $(".filter input").val('all');
+    Session.set("filter", 'all');
+},
+
+"click .tags .src" : function(event,template){
+    $(".filter input").val('src');
+    Session.set("filter", 'src');
+},
+
+"click .tags .tips" : function(event,template){
+    $(".filter input").val('tips');
+    Session.set("filter", 'tips');
+},
+
+"click .tags .link" : function(event,template){
+    $(".filter input").val('link');
+    Session.set("filter", 'link');
+},
+
 "submit .filter": function (event,template) {
     Session.set("current_page",1);
     event.preventDefault();
