@@ -38,12 +38,14 @@ Template.body.findHelper = function(){
 
     }
     else if(filter){
-      find.query.filter = {   $regex:   ".*"+filter+".*" };
+      find.query.filter = {   $regex:   ".*"+filter+".*", $options: "i" };
      // alert("输入以查询符合条件的文章，输入all 可以查询全部类型包含Blog, 代码, 　技巧等。输入　src xxxxx　查询符合xxxxx的代码。 blog xxxxx查询文章。等等。");
     
     }else{
-      find.query.filter = {   $regex:   ".*blog.*" };
+      find.query.filter = {   $regex:   ".*blog.*" , $options: "i"};
     }
+
+    //find.query.op = "i";
     //query author
     if(Session.get("status") == "1"){
        var usr =  Meteor.user();
