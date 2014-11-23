@@ -41,7 +41,7 @@ Template.nav.events({
 },
 
 "submit .filter": function (event,template) {
-    
+    Session.set("current_page",1);
     event.preventDefault();
     var filter = event.target.text.value;
     Session.set("filter", filter);

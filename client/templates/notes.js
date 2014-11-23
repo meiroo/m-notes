@@ -83,6 +83,8 @@ Template.body.flushPage = function(pagenum){
   $("#pagination").pagination({
     total_pages: (pagenum-1)/5 + 1, 
     current_page: Session.get("current_page"),
+    first: "First",
+    last:"Last",
     callback: function(event, page) {
         Session.set("current_page",page);
       }
