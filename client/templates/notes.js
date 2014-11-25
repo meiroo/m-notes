@@ -13,19 +13,20 @@ alert = function(str){
 
   var notice = new PNotify({
       type: 'notice',
-      title: 'Notice(点击以消除)',
+      title: 'Notice',
       text: str,
       styling: 'bootstrap3',
-      hide: false,
-      buttons:{
+      hide: true,
+      delay: 4000
+      /*buttons:{
         closer: true,
         closer_hover: true
-      }
+      }*/
 
     });
-  notice.get().click(function() {
+  /*notice.get().click(function() {
       notice.remove();
-  });
+  });*/
 }
 Template.body.findHelper = function(){
    var find = {};
