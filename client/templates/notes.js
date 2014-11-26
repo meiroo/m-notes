@@ -81,6 +81,7 @@ Template.body.helpers({
 Template.body.flushPage = function(pagenum){
   console.log("body flush...");
   console.log("pagenum size = " + pagenum);
+
   $("#pagination").pagination({
     total_pages: (pagenum-1)/5 + 1, 
     current_page: Session.get("current_page"),
@@ -95,6 +96,8 @@ Template.body.flushPage = function(pagenum){
 
 Template.body.rendered = function () {
     //Template.body.flush();
+    
+    $.material.init();
     setTimeout(function(){
       alert("点击右上角的Sign区域，注册号码并登录可以发表自己的Notes。");
     },2000);
