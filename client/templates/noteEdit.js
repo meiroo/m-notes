@@ -33,6 +33,7 @@ Template.noteEdit.events({
     var image1 = event.target.image1.value;
     var image2 = event.target.image2.value;
     var image3 = event.target.image3.value;
+    var markdown = event.target.markdown.checked;
     if(!filter)
       filter = "默认";
 
@@ -42,11 +43,12 @@ Template.noteEdit.events({
         title: title,
         content:content,
         filter:filter,
-        images:[image1,image2,image3]
+        images:[image1,image2,image3],
+        markdown:markdown
       } } );
     }else{
       Notes.insert({  title:title, content: content, author:author, 
-        filter:filter,images:[image1,image2,image3],createdAt: new Date()   });
+        filter:filter,images:[image1,image2,image3],markdown:markdown,createdAt: new Date()   });
     }
     
     $('#myModal').modal('hide');

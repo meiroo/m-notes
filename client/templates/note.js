@@ -10,6 +10,10 @@ Template.note.helpers({
 
   expand:true,
 
+  useMarkdown:function(){
+    return this.markdown;
+  },
+
   });
 
 Template.note.events({

@@ -59,12 +59,26 @@
         </a>
       </h4>
     </div>
-<pre class="contentThumb" style="overflow:auto; "> {{contentThumb}} </pre>
+    {{#if useMarkdown}}
+        <div class="contentThumb">
+       {{#markdown}}{{contentThumb}}{{/markdown}}
+       </div>
+      {{else}}
+      <pre class="contentThumb" style="overflow:auto; "> {{contentThumb}} </pre>
+    {{/if}}
+      
+
+
   <div class="panel-group" id="accordion{{_id}}" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     
     <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}" >
+      {{#if useMarkdown}}
+       {{#markdown}}{{content}}{{/markdown}}
+      {{else}}
       <pre class="content" style="overflow:auto;"> {{content}} </pre>
+      {{/if}}
+      
         <p>
         <a class="edit btn btn-primary btn-raised btn-xs" href="#" role="button" data-toggle="modal" >  Edit This Note </a>
         <a class="delete btn btn-primary btn-raised btn-xs" href="#" role="button"> Delete Note </a>
