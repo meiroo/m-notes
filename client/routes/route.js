@@ -7,3 +7,8 @@ Router.route('/note/:_id', function () {
   this.render('single');
   Session.set('_id', this.params._id);
 });
+
+Router.route('/about', function () {
+  Router.go('/note/kpNvwdsHtt6js3SeA');
+});
+
