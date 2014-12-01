@@ -1,0 +1,20 @@
+<template name="singlenote">
+
+
+
+
+<div class="jumbotron">
+<h2 class="text-center">{{note.title}}</h2>
+<h4>{{note.author}}    写作于  {{note.createdAt}} </h4>
+<h4> TAGS:  {{note.filter}}</h4>
+
+{{#if useMarkdown}}
+ {{#markdown}}{{note.content}}{{/markdown}}
+{{else}}
+<pre class="content" style="overflow:auto;"> {{note.content}} </pre>
+{{/if}}
+
+
+</div> 
+
+</template>

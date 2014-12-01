@@ -27,6 +27,7 @@ Template.nav.events({
 },
 
 "click .onlyme": function (event,template) {
+    Router.go('/');
     Session.set("status", "1");
     Session.set("current_page",1);
     event.preventDefault();
@@ -34,6 +35,7 @@ Template.nav.events({
 },
 
 "click .allnotes": function (event,template) {
+    Router.go('/');
     Session.set("status", "0");
     Session.set("current_page",1);
     event.preventDefault();
@@ -41,31 +43,37 @@ Template.nav.events({
 },
 
 "click .tags .all" : function(event,template){
+    Router.go('/');
     $(".filter input").val('all');
     Session.set("filter", 'all');
 },
 
 "click .tags .src" : function(event,template){
+    Router.go('/');
     $(".filter input").val('src');
     Session.set("filter", 'src');
 },
 
 "click .tags .tips" : function(event,template){
+    Router.go('/');
     $(".filter input").val('tips');
     Session.set("filter", 'tips');
 },
 
 "click .tags .link" : function(event,template){
+    Router.go('/');
     $(".filter input").val('link');
     Session.set("filter", 'link');
 },
 
 "click .simple" : function(event,template){
+    Router.go('/');
     var bool = Session.get('simple');
     Session.set("simple", !bool);
 },
 
 "submit .filter": function (event,template) {
+    Router.go('/');
     Session.set("current_page",1);
     event.preventDefault();
     var filter = event.target.text.value;

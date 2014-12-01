@@ -13,14 +13,19 @@
   {{> nav }}
 
   {{> noteEdit}}
-
-  {{#each notes}}
-        {{> note}}
-  {{/each}}
-  <div class="row center-block text-right">
+  {{#if bsinglenote}}
+    {{> singlenote}}
+  {{else}}
+    {{#each notes}}
+          {{> note}}
+    {{/each}}
+    <div class="row center-block text-right">
   <ul id="pagination" class="pagination-sm">
   </ul>
   </div>
+  {{/if}}
+
+  
 
 
 </div>

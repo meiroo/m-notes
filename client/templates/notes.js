@@ -46,6 +46,11 @@ Template.body.findHelper = function(){
       find.query.filter = {   $regex:   ".*blog.*" , $options: "i"};
     }
 
+    var _id = Session.get("_id");
+    if(_id){
+      find.query._id = _id;
+    }
+
     //find.query.op = "i";
     //query author
     if(Session.get("status") == "1"){
@@ -64,6 +69,15 @@ Template.body.findHelper = function(){
 }
 
 Template.body.helpers({
+  bsinglenote:function(){
+    var _id = Session.get("_id");
+    if(_id){
+      return true;
+    }else{
+      return false;
+    }
+  },
+
   notes:function(){
     console.log("body helper notes...");
     console.log("collection size = " + Notes.find({}).count());
