@@ -69,15 +69,6 @@ Template.notes.findHelper = function(){
 }
 
 Template.notes.helpers({
-  bsinglenote:function(){
-    var _id = Session.get("_id");
-    if(_id){
-      return true;
-    }else{
-      return false;
-    }
-  },
-
   notes:function(){
     console.log("body helper notes...");
     console.log("collection size = " + Notes.find({}).count());
@@ -86,7 +77,8 @@ Template.notes.helpers({
     notes =  Notes.find(find.query, { sort : { createdAt : -1 } , skip: find.page*5, limit: 5});
 
     //flush pagination
-    Template.notes.flushPage(Notes.find(find.query).count());
+    Template.notes.pagecount = Notes.find(find.query).count();
+    Template.notes.flushPage(Template.notes.pagecount);
     
     return notes;
   }
@@ -112,7 +104,8 @@ Template.notes.rendered = function () {
     //Template.body.flush();
     
     $.material.init();
-    setTimeout(function(){
+    Template.notes.flushPage(Template.notes.pagecount);
+    /*setTimeout(function(){
       alert("点击右上角的Sign区域，注册号码并登录可以发表自己的Notes。");
     },2000);
     
@@ -122,7 +115,7 @@ Template.notes.rendered = function () {
 
     setTimeout(function(){
       alert("点击只看自己可以只查看自己的文章，此时标签搜索也只在自己文章中搜索。在文章区域，点击learn more可以展开文章并编辑。");
-    },18000);
+    },18000);*/
     
 };
 

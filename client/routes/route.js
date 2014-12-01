@@ -4,6 +4,6 @@ Router.route('/', function () {
 });
 
 Router.route('/note/:_id', function () {
-  this.render('index');
+  this.render('single');
   Session.set('_id', this.params._id);
 });
