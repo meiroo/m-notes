@@ -1,13 +1,4 @@
-<head>
-  <title>notes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-
-
-
-<div class="container">
+<template name="notes">
 
   {{> header }}
   {{> nav }}
@@ -20,13 +11,8 @@
           {{> note}}
     {{/each}}
     <div class="row center-block text-right">
-  <ul id="pagination" class="pagination-sm">
-  </ul>
-  </div>
+    <ul id="pagination" class="pagination-sm">
+    </ul>
+    </div>
   {{/if}}
-
-  
-
-
-</div>
-</body>
+</template>

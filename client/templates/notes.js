@@ -28,7 +28,7 @@ alert = function(str){
       notice.remove();
   });*/
 }
-Template.body.findHelper = function(){
+Template.notes.findHelper = function(){
    var find = {};
    //query...  filter
    find.query = {};
@@ -68,7 +68,7 @@ Template.body.findHelper = function(){
     return find;
 }
 
-Template.body.helpers({
+Template.notes.helpers({
   bsinglenote:function(){
     var _id = Session.get("_id");
     if(_id){
@@ -82,17 +82,17 @@ Template.body.helpers({
     console.log("body helper notes...");
     console.log("collection size = " + Notes.find({}).count());
     var notes = null;
-    var find = Template.body.findHelper();
+    var find = Template.notes.findHelper();
     notes =  Notes.find(find.query, { sort : { createdAt : -1 } , skip: find.page*5, limit: 5});
 
     //flush pagination
-    Template.body.flushPage(Notes.find(find.query).count());
+    Template.notes.flushPage(Notes.find(find.query).count());
     
     return notes;
   }
 });
 
-Template.body.flushPage = function(pagenum){
+Template.notes.flushPage = function(pagenum){
   console.log("body flush...");
   console.log("pagenum size = " + pagenum);
 
@@ -108,7 +108,7 @@ Template.body.flushPage = function(pagenum){
 }
 
 
-Template.body.rendered = function () {
+Template.notes.rendered = function () {
     //Template.body.flush();
     
     $.material.init();
@@ -126,7 +126,7 @@ Template.body.rendered = function () {
     
 };
 
-Template.body.created = function () {
+Template.notes.created = function () {
   Session.set("filter","");
   Session.set("simple",false);
 };
