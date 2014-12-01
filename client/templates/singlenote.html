@@ -8,7 +8,7 @@
 <h4>{{note.author}}    写作于  {{note.createdAt}} </h4>
 <h4> TAGS:  {{note.filter}}</h4>
 
-{{#if useMarkdown}}
+{{#if note.markdown}}
  {{#markdown}}{{note.content}}{{/markdown}}
 {{else}}
 <pre class="content" style="overflow:auto;"> {{note.content}} </pre>

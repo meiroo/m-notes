@@ -5,10 +5,7 @@ Template.singlenote.helpers({
       return Notes.findOne({"_id":_id});
     }
     return null;
-  },
-  useMarkdown:function(){
-    return this.markdown;
-  },
+  }
 
 });
 
