@@ -15,12 +15,13 @@ Meteor.methods({
   download: function(){
   	var stream = Npm.require("stream");
   	var set = Notes.find({});
-     var s = new stream.Readable();
-    s._read = function noop() {};
-
-     set.forEach(function (note) {
-      s.push(JSON.stringify(note));
+      var s = new stream.Readable();
+      s._read = function noop() {};
+      s.push('[');
+      set.forEach(function (note) {
+          s.push(JSON.stringify(note)+',');
      });
+     s.push(']');
 
      s.push(null);
      return s;
