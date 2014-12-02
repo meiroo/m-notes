@@ -69,6 +69,11 @@ Template.nav.events({
     Session.set("simple", !bool);
 },
 
+"click .manage .export" : function(event,template){
+    event.preventDefault();
+    Router.go('/exportJSON');
+},
+
 "submit .filter": function (event,template) {    
     event.preventDefault();
     var filter = event.target.text.value;

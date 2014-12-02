@@ -1,3 +1,4 @@
+
 Router.route('/', function () {
   Session.set('_id', null);
   this.render('index');  
@@ -38,4 +39,35 @@ Router.route('/filter/:_tag',function(){
     Session.set("current_page",1);
     this.render('index');
 });
+
+// Router.route('/download', function () {
+//   var req = this.request;
+//   var res = this.response;
+//   res.end('hello from the server\n');
+//   this.render('json');
+// }, {where: 'server'});
+
+
+Router.route('/download', { where: 'server' })
+  .get(function () {
+    // GET /webhooks/stripe
+    this.response.end('asdfasfdsa');
+  })
+  .post(function () {
+    // POST /webhooks/stripe
+  })
+  .put(function () {
+    // PUT /webhooks/stripe
+  });
+
+Router.route('/exportJSON', function () {
+  var r = this;
+  var msg = Meteor.call('exportJSON',function(err,str){
+  	r.render('json',{
+  		data:{"content":str}  		
+  	});
+  });
+});
+
+
 
