@@ -55,7 +55,7 @@ Router.route('/exportJSON', function () {
         });
       });
    }else { 
-    alert('only user can export!');
+    alert('登录后才能导出自己的Notes...');
     this.next(); 
   }
   
