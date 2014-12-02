@@ -46,12 +46,27 @@ Router.route('/filter/:_tag',function(){
 //   res.end('hello from the server\n');
 //   this.render('json');
 // }, {where: 'server'});
+Router.route('/exportJSON', function () {
+  var r = this;
+  var msg = Meteor.call('exportJSON',function(err,str){
+    r.render('json',{
+      data:{"content":str}      
+    });
+  });
+});
 
 
 Router.route('/download', { where: 'server' })
   .get(function () {
     // GET /webhooks/stripe
-    this.response.end('asdfasfdsa');
+      //  var string = '';
+     s = Meteor.call('download');
+     this.response.setHeader('Content-Type', 'text/plain');
+     this.response.setHeader('content-disposition', "attachment; filename=notes.json");
+     s.pipe(this.response);
+     
+      //
+    //this.response.end('asdfasfdsa');
   })
   .post(function () {
     // POST /webhooks/stripe
@@ -60,14 +75,6 @@ Router.route('/download', { where: 'server' })
     // PUT /webhooks/stripe
   });
 
-Router.route('/exportJSON', function () {
-  var r = this;
-  var msg = Meteor.call('exportJSON',function(err,str){
-  	r.render('json',{
-  		data:{"content":str}  		
-  	});
-  });
-});
 
 
 

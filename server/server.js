@@ -7,18 +7,18 @@ Meteor.methods({
   exportJSON: function () {
   	var str = JSON.stringify(Notes.find({},{limit:10}).fetch());
   	return str;
-  //	var string = '';
- // 	 var set = Notes.find({});
-  // 	 var s = new stream.Readable();
-	 // s._read = function noop() {};
+  },
+  download: function(){
+  	var stream = Npm.require("stream");
+  	var set = Notes.find({});
+     var s = new stream.Readable();
+    s._read = function noop() {};
 
-  // 	 set.forEach(function (note) {
-  // 	 	s.push(JSON.stringify(note));
-  // 	 });
+     set.forEach(function (note) {
+      s.push(JSON.stringify(note));
+     });
 
-  // 	 s.push(null);
-
-
-  	 return string;
+     s.push(null);
+     return s;
   }
 });
