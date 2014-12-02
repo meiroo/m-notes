@@ -32,6 +32,7 @@ Template.notes.findHelper = function(){
    var find = {};
    //query...  filter
    find.query = {};
+   if(Session.get("filter")){
     var filter = Session.get("filter").toLowerCase();
     //alert(filter);
     filter = filter.replace(/\s/g,".*");
@@ -45,11 +46,10 @@ Template.notes.findHelper = function(){
     }else{
       find.query.filter = {   $regex:   ".*blog.*" , $options: "i"};
     }
-
-    var _id = Session.get("_id");
-    if(_id){
-      find.query._id = _id;
-    }
+   }else{
+    find.query.filter = {   $regex:   ".*blog.*" , $options: "i"};
+   }
+    
 
     //find.query.op = "i";
     //query author
@@ -120,7 +120,7 @@ Template.notes.rendered = function () {
 };
 
 Template.notes.created = function () {
-  Session.set("filter","");
+  //Session.set("filter","");
   Session.set("simple",false);
 };
 

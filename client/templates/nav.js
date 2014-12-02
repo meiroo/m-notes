@@ -27,43 +27,40 @@ Template.nav.events({
 },
 
 "click .onlyme": function (event,template) {
-    Router.go('/');
-    Session.set("status", "1");
-    Session.set("current_page",1);
+    Router.go('/mypost');    
     event.preventDefault();
     return false;
 },
 
 "click .allnotes": function (event,template) {
-    Router.go('/');
-    Session.set("status", "0");
-    Session.set("current_page",1);
+    Router.go('/allpost');
     event.preventDefault();
     return false;
 },
 
 "click .tags .all" : function(event,template){
-    Router.go('/');
+    Router.go('/filter/all');
     $(".filter input").val('all');
-    Session.set("filter", 'all');
 },
 
 "click .tags .src" : function(event,template){
-    Router.go('/');
+    Router.go('/filter/src');
     $(".filter input").val('src');
-    Session.set("filter", 'src');
 },
 
 "click .tags .tips" : function(event,template){
-    Router.go('/');
+    Router.go('/filter/tips');
     $(".filter input").val('tips');
-    Session.set("filter", 'tips');
 },
 
 "click .tags .link" : function(event,template){
-    Router.go('/');
+    Router.go('/filter/link');
     $(".filter input").val('link');
-    Session.set("filter", 'link');
+},
+
+"click .tags .blog" : function(event,template){
+    Router.go('/filter/');
+    $(".filter input").val('');
 },
 
 "click .simple" : function(event,template){
@@ -72,12 +69,10 @@ Template.nav.events({
     Session.set("simple", !bool);
 },
 
-"submit .filter": function (event,template) {
-    Router.go('/');
-    Session.set("current_page",1);
+"submit .filter": function (event,template) {    
     event.preventDefault();
     var filter = event.target.text.value;
-    Session.set("filter", filter);
+    Router.go('/filter/'+filter);
     return false;
 }
 
