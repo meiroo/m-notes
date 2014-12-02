@@ -5,7 +5,11 @@ Meteor.startup(function () {
 
 Meteor.methods({
   exportJSON: function () {
-  	var str = JSON.stringify(Notes.find({},{limit:10}).fetch());
+  	var usr = Meteor.user();
+  	var author = usr.emails[0].address;
+  	var query = {};
+    query.author = author;
+  	var str = JSON.stringify(Notes.find(query,{limit:10}).fetch());
   	return str;
   },
   download: function(){

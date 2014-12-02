@@ -48,11 +48,17 @@ Router.route('/filter/:_tag',function(){
 // }, {where: 'server'});
 Router.route('/exportJSON', function () {
   var r = this;
-  var msg = Meteor.call('exportJSON',function(err,str){
-    r.render('json',{
-      data:{"content":str}      
-    });
-  });
+  if (Meteor.user()) {
+     var msg = Meteor.call('exportJSON',function(err,str){
+        r.render('json',{
+          data:{"content":str}      
+        });
+      });
+   }else { 
+    alert('only user can export!');
+    this.next(); 
+  }
+  
 });
 
 
