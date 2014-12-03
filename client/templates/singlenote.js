@@ -74,8 +74,10 @@ Template.singlenote.codePretty = function(){
   prettyPrint();
 }
 
-Template.singlenote.rendered = function () {
+Template.singlenote.rendered = function (template) {
   console.log("note rendered...");
   Template.singlenote.codePretty();
+  //alert(window.location.href);
+  $('#qrcode').qrcode({width: 150,height: 150,text: window.location.href});
 };
 
