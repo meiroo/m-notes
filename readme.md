@@ -67,17 +67,18 @@ server      //服务端
 
 ###meteor package list
 ```
-accounts-password                   1.0.4  Password support for accounts
-appcache                            1.0.2  Enable the application cache in th...
-autopublish                         1.0.1  Publish the entire database to all...
-ground:db                           0.0.9  Ground Meteor.Collections offline
-html5cat:bootstrap-material-design  0.1.3  Google's Material Design based Boo...
-ian:accounts-ui-bootstrap-3         1.1.12  Bootstrap-styled accounts-ui with...
-insecure                            1.0.1  Allow all database writes by default
-markdown                            1.0.2  Markdown-to-HTML processor
-meteor-platform                     1.2.0  Include a standard set of Meteor p...
-mizzao:bootstrap-3                  3.2.0_1  HTML, CSS, and JS framework for ...
-mongo                                1.0.8  Adaptor for using MongoDB and Mini...
-code-prettify
-iron:router
+accounts-password                            1.0.4  Password support for accounts
+appcache                                     1.0.2  Enable the application cache in the browser
+autopublish                                  1.0.1  Publish the entire database to all clients
+code-prettify                                1.0.1  Syntax highlighting of code, from Google
+fezvrasta:bootstrap-material-design-noglyph  0.2.1  FezVrasta's Bootstrap Google Material Design theme. Material icons instead of Bootstrap glyphicons.
+ground:db                                    0.0.9* Ground Meteor.Collections offline
+ian:accounts-ui-bootstrap-3                  1.1.20* Bootstrap-styled accounts-ui with multi-language support.
+insecure                                     1.0.1  Allow all database writes by default
+iron:router                                  1.0.3* Routing specifically designed for Meteor
+markdown                                     1.0.2  Markdown-to-HTML processor
+meteor-platform                              1.2.0  Include a standard set of Meteor packages in your app
+mongo                                        1.0.8* Adaptor for using MongoDB and Minimongo over DDP
+
+
 ```
