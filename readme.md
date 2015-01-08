@@ -1,4 +1,4 @@
-## <http://m-soft.meteor.com/#notes>
+## <http://meiroo.github.io/#notes>
 
 ##demo site: <http://m-notes.meteor.com>
 
